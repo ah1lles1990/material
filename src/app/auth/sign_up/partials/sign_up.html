@@ -12,14 +12,14 @@
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label translate="label_email"></label>
-                    <input type="email" ng-pattern="/[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}/g" ng-model="sign_up.user.email" required>
+                    <input type="email" name="email" ng-change="sign_up.validate_email()" ng-model="sign_up.user.email" required>
                     <div ng-messages="signUpForm.email.$error" ng-show="signUpForm.email.$dirty">
                         <div ng-message="required" class="align-left" translate="required_field"></div>
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label translate="label_password"></label>
-                    <input type="password" ng-model="sign_up.user.password" required md-maxlength="16">
+                    <input type="password" name="password" ng-model="sign_up.user.password" required md-maxlength="16">
                     <div ng-messages="signUpForm.password.$error" ng-show="signUpForm.password.$dirty">
                     <div ng-message="required" class="align-left" translate="required_field"></div>
                     <div ng-message="md-maxlength" class="align-left" translate="required_password_field"></div>
@@ -27,11 +27,10 @@
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label translate="label_confirm_password"></label>
-                    <input type="password" ng-model="sign_up.confirm_password" required md-maxlength="16">
+                    <input type="password" name="confirm_password" ng-model="sign_up.confirm_password" ng-change="sign_up.validate_password()" required md-maxlength="16">
                     <div ng-messages="signUpForm.confirm_password.$error" ng-show="signUpForm.confirm_password.$dirty">
                     <div ng-message="required" class="align-left" translate="required_field"></div>
                     <div ng-message="md-maxlength" class="align-left" translate="required_password_field"></div>
-                    <div ng-if="sign_up.user.password != sign_up.confirm_password && sign_up.passwords_not_match" class="required-field-error align-left" translate="required_password_confirm"></div>
                 </div>
                 </md-input-container class="md-block">
                 <md-input-container class="md-block">
@@ -42,3 +41,4 @@
         </div>
     </div>
 </div>
+<flash-message show-close="true"></flash-message>

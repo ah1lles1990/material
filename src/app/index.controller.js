@@ -4,32 +4,20 @@
   angular.module('material')
     .controller('MainController', MainController);
 
-  MainController.$inject = ['$scope', '$state', '$translate', 'UserLocalStorage', 'usersApi'];
+  MainController.$inject = ['$scope', '$timeout'];
 
-  function MainController($scope, $state, $translate, UserLocalStorage, usersApi) {
+  function MainController($scope, $timeout) {
 
     var vm = this;
 
-    // vm.current_user;
-    // vm.users;
+    vm.login_animation = false;
 
-    // if (angular.isUndefined(vm.users)) {
-    //   auth.get_users().then(function(response) {
-    //     vm.users = response.data;
-    //     console.log(vm.users);
-    //     $scope.get_current_user();
-    //   });
-    // } 
-
-    // $scope.get_current_user = function() {
-    //   var user = UserLocalStorage.get_user_login();
-    //   _.each(vm.users, function(value, key, list) {
-    //     console.log(user);
-    //     vm.current_user = user.id == key ? list[key] : {};
-    //   });
-    //   console.log(vm.current_user);
-    //   return vm.current_user;
-    // }
+    $scope.$on('login_animation', function() {
+        vm.login_animation = true;
+        $timeout(function() {
+          vm.login_animation = false;
+        }, 2000);
+    });
 
   }
 

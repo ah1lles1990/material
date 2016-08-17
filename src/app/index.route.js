@@ -30,7 +30,7 @@
         url: '/logout',
         resolve: {
           auth: function ($state, $timeout, UserLocalStorage) {
-            $timeout(function() { 
+            $timeout(function() {
               UserLocalStorage.user_sign_out();
               $state.go('home') 
             }, 0);

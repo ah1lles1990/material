@@ -23,10 +23,22 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div class="site-wrapper" ng-controller="MainController">
+
+    <div class="site-wrapper" ng-controller="MainController as mainCtrl" ng-class="{'page-is-changing': mainCtrl.login_animation}">
+
         <div class="main-wrapper" ui-view></div>
+
+        <!-- Login animation -->
+        <div class="cd-cover-overlay"></div>
+        <div class="cd-cover-layer"></div>
+        <div class="cd-loading-bar"></div>
+
+        <!-- Preloader -->
+        <div class="la-anim-10"></div>
+
     </div>
-    <div class="la-anim-10"></div>
+
+
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->

@@ -32,7 +32,7 @@
         return Flash.create(
           type,
           '<div><i class="icon icon-' + type + '"></i><p class="flash-text">' + message + '</p></div>',
-          timeout || 4000,
+          timeout || 5000,
           { 'class': cl, id: id },
           true
         );

@@ -219,6 +219,112 @@ body {
 }
 
 
+/* Animation to login */
+
+.cd-loading-bar {
+    position: fixed;
+    z-index: 300;
+    left: 50%;
+    top: 50%;
+    height: 2px;
+    width: 90%;
+    background-color: #4089a6;
+    visibility: hidden;
+    transition: visibility 0s 0.4s, transform 0.4s 0s ease-in;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transform: translateX(-50%) translateY(-50%);
+}
+.page-is-changing .cd-loading-bar:before {
+    background-color: #000;
+}
+.cd-loading-bar:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+.page-is-changing .cd-loading-bar:before {
+    transform: scaleX(1);
+    transition: transform 0.8s 0.8s ease-in;
+}
+.page-is-changing .cd-loading-bar {
+    visibility: visible;
+    transform: translateX(-50%) translateY(-50%) scaleX(0.3);
+    transition: visibility 0s 0.3s, transform 0.4s 0.4s;
+}
+.site-wrapper:after, .site-wrapper:before {
+    content: '';
+    height: 50vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    background-color: #ffffff;
+    z-index: 250;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.4s 0.4s;
+}
+.site-wrapper:before {
+    top: 0;
+    transform: translateY(-100%);
+}
+.site-wrapper:after {
+    bottom: 0;
+    transform: translateY(100%);
+}
+.site-wrapper.page-is-changing:after, .site-wrapper.page-is-changing:before {
+    transform: translateY(0);
+    transition: transform 0.4s 0s;
+}
+.cd-cover-layer {
+    position: fixed;
+    z-index: 200;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    transform: translateX(-50%) translateY(-50%);
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    opacity: 0;
+    visibility: hidden;
+    background-color: #4089a6;
+    transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
+}
+.cd-cover-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #4089a6;
+    opacity: 0;
+    visibility: hidden;
+}
+.page-is-changing .cd-cover-layer {
+    background-color: #283040;
+}
+.page-is-changing .cd-cover-layer {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+.page-is-changing .cd-cover-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 
 
