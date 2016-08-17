@@ -1,0 +1,121 @@
+/* Flash showing style */
+
+.alert {
+    position: fixed;
+    top: 100px;
+    right: 50px;
+    z-index: 500;
+    margin: 0;
+    width: 300px;
+    box-shadow: 2px 2px 10px #B3B3B3;
+    background: #fff;
+    -webkit-animation-name: bounceInRight;
+    animation-name: bounceInRight;
+    -webkit-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+
+    .icon {
+        vertical-align: middle;
+        margin: 0 5px 0 0;
+        font-family: 'FontAwesome';
+        display: inline-block;
+        font-size: 40px;
+        line-height: 1;
+        font-weight: normal;
+        font-style: normal;
+    }
+}
+.alert.ng-leave {
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+.alert.ng-leave-active {
+  opacity: 0;
+}
+.flash-text {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 80%;
+    padding: 0 0 0 15px;
+    line-height: 20px;
+    font-size: 16px;
+    word-break: break-word;
+
+    span {
+        display: block;
+        margin: 5px 0 0;
+        font-size: 13px;
+        color: #9B9C9E;
+
+        &:first-child {
+            margin-top: 10px;
+        }
+    }
+}
+.alert-dismissible .close {
+    color: #1088DE;
+    opacity: 1;
+}
+.icon-success {
+
+    &:before {
+        content: "\f00c";
+    }
+}
+.icon-info {
+
+    &:before {
+        content: "\f12a";
+    }
+}
+.icon-warning {
+
+    &:before {
+        content: "\f129";
+    }
+}
+.icon-danger {
+
+    &:before {
+        content: "\f00d";
+    }
+}
+
+@-webkit-keyframes bounceInRight {
+    0%,100%,60%,75%,90% {
+        -webkit-animation-timing-function: cubic-bezier(0.215,.61,.355,1);
+        animation-timing-function: cubic-bezier(0.215,.61,.355,1)
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(3000px,0,0);
+        transform: translate3d(3000px,0,0)
+    }
+    75% {
+        opacity: 1;
+        -webkit-transform: translate3d(-25px,0,0);
+        transform: translate3d(-25px,0,0)
+    }
+    100% {
+        -webkit-transform: none;
+        transform: none
+    }
+}
+@keyframes bounceInRight {
+    0%,100%,60%,75%,90% {
+        animation-timing-function: cubic-bezier(0.215,.61,.355,1)
+    }
+    0% {
+        opacity: 0;
+        transform: translate3d(3000px,0,0)
+    }
+    75% {
+        opacity: 1;
+        transform: translate3d(-25px,0,0)
+    }
+    100% {
+        transform: none
+    }
+}

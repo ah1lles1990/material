@@ -1,0 +1,29 @@
+<div class="main-content" layout="column" layout-align="center center">
+    <div class="mb-wrapper align-center">
+        <form name="signInForm" ng-submit="sign_in.login_user()">
+            <div class="main-title" translate="sign_in_title"></div>
+            <md-input-container class="md-block">
+                <label translate="label_email"></label>
+                <input  type="email" name="email" ng-pattern="/[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}/g" ng-model="sign_in.user.email" required>
+                <div ng-messages="signInForm.email.$error" ng-show="signInForm.email.$dirty">
+                    <div ng-message="required" class="align-left" translate="required_field"></div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label translate="label_password"></label>
+                <input type="password" name="password" ng-model="sign_in.user.password" required>
+                <div ng-messages="signInForm.password.$error" ng-show="signInForm.password.$dirty">
+                    <div ng-message="required" class="align-left" translate="required_field"></div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block align-left">
+                <md-checkbox ng-model="sign_in.user_remember" aria-label="remember_me"><span translate="remember_me"></span></md-checkbox>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <md-button class="md-raised" ui-sref="home" translate="back" aria-label="back"></md-button>
+                <md-button type="submit" class="md-raised md-primary" translate="sign_in_btn" aria-label="sign_in_btn"></md-button>
+            </md-input-container>
+        </form>
+    </div>
+</div>
+<flash-message show-close="true"></flash-message>

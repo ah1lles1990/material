@@ -1,0 +1,44 @@
+<div class="main-content" layout="column" layout-align="center center">
+    <div class="mb-wrapper align-center">
+        <div class="container">
+            <form name="signUpForm" ng-submit="sign_up.add_user()">
+                <div class="main-title" translate="sign_up_title"></div>
+                <md-input-container class="md-block">
+                    <label translate="label_name"></label>
+                    <input type="text" ng-model="sign_up.user.name" required>
+                    <div ng-messages="signUpForm.name.$error" ng-show="signUpForm.name.$dirty">
+                        <div ng-message="required" class="align-left" translate="required_field"></div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label translate="label_email"></label>
+                    <input type="email" ng-pattern="/[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}/g" ng-model="sign_up.user.email" required>
+                    <div ng-messages="signUpForm.email.$error" ng-show="signUpForm.email.$dirty">
+                        <div ng-message="required" class="align-left" translate="required_field"></div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label translate="label_password"></label>
+                    <input type="password" ng-model="sign_up.user.password" required md-maxlength="16">
+                    <div ng-messages="signUpForm.password.$error" ng-show="signUpForm.password.$dirty">
+                    <div ng-message="required" class="align-left" translate="required_field"></div>
+                    <div ng-message="md-maxlength" class="align-left" translate="required_password_field"></div>
+                </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label translate="label_confirm_password"></label>
+                    <input type="password" ng-model="sign_up.confirm_password" required md-maxlength="16">
+                    <div ng-messages="signUpForm.confirm_password.$error" ng-show="signUpForm.confirm_password.$dirty">
+                    <div ng-message="required" class="align-left" translate="required_field"></div>
+                    <div ng-message="md-maxlength" class="align-left" translate="required_password_field"></div>
+                    <div ng-if="sign_up.user.password != sign_up.confirm_password && sign_up.passwords_not_match" class="required-field-error align-left" translate="required_password_confirm"></div>
+                </div>
+                </md-input-container class="md-block">
+                <md-input-container class="md-block">
+                    <md-button class="md-raised" ui-sref="home" aria-label="back" translate="back"></md-button>
+                    <md-button type="submit" class="md-raised md-primary" aria-label="sign_up_btn" translate="sign_up_btn"></md-button>
+                </md-input-container>
+            </form>
+        </div>
+    </div>
+</div>
