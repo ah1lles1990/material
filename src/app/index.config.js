@@ -53,7 +53,7 @@
 
     $translateProvider.useSanitizeValueStrategy('sanitize');
 
-    $translateProvider.preferredLanguage('en_US');
+    $translateProvider.preferredLanguage('ru_RU');
   }
 
 })();

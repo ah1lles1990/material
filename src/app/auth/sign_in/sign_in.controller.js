@@ -4,22 +4,18 @@
   angular.module('material')
     .controller('SignInController', SignInController);
 
-  SignInController.$inject = ['$scope', '$state', '$translate', 'UserLocalStorage', 'usersApi', 'flashMethods', '_'];
+  SignInController.$inject = ['$scope', '$state', 'translateService', 'UserLocalStorage', 'usersApi', 'flashMethods', '_'];
 
-  function SignInController($scope, $state, $translate, UserLocalStorage, usersApi, flashMethods, _) {
+  function SignInController($scope, $state, translateService, UserLocalStorage, usersApi, flashMethods, _) {
 
     var
       vm = this,
       regExp = /[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}/g,
-      not_valid_password = '',
-      email_is_empty = '';
+      translate = {};
 
     vm.user_remember = false;
 
-    $translate(['not_valid_password', 'email_is_empty']).then(function (translations) {
-      not_valid_password = translations.not_valid_password;
-      email_is_empty = translations.email_is_empty;
-    });
+    translate = translateService.create(['not_valid_password', 'email_is_empty', 'res_error']);
 
     vm.validate_email = function() {
       var email_valid = $scope.signInForm.email.$viewValue.search(regExp) !== -1;
@@ -27,43 +23,49 @@
     }
 
     vm.login_user = function() {
-      if ($scope.signInForm.$valid) {
-        usersApi.users_list().then(function(response) {
-          var
-            users_list = response.data,
-            user = {},
-            user_info = {};
+      if (!$scope.signInForm.$valid) return false;
 
-          _.map(users_list, function(value, key) {
-            if (value.email === vm.user.email) {
-              user_info.id = key;
-              user_info.role = value.role;
-              user = value;
-            }
-          });
+      usersApi.users_list()
+        .then(
+          function(response) {
+            var
+              users_list = response.data,
+              user = {},
+              user_info = {};
 
-          if (Object.keys(user).length) {
-            if (user.password === vm.user.password) {
-              if (vm.user_remember) {
-                UserLocalStorage.user_login('remember', user_info);
-              } else {
-                UserLocalStorage.user_login('session', user_info);
+            _.map(users_list, function(value, key) {
+              if (value.email === vm.user.email) {
+                user_info.id = key;
+                user_info.role = value.role;
+                user = value;
               }
-              $scope.$emit('login_animation');
-              if (user.role === 'admin') {
-                $state.go('admin');
-              } else {
-                $state.go('user_profile');
-              }
+            });
+
+            if (!Object.keys(user).length)
+              return flashMethods.dangerAlert(translate.email_is_empty);
+
+            if (user.password !== vm.user.password)
+              return flashMethods.dangerAlert(translate.not_valid_password);
+
+            if (vm.user_remember) {
+              UserLocalStorage.user_login('remember', user_info);
             } else {
-              flashMethods.dangerAlert(not_valid_password);
+              UserLocalStorage.user_login('session', user_info);
             }
-          } else {
-            flashMethods.dangerAlert(email_is_empty);
-          }
 
-        });
-      }
+            $scope.$emit('login_animation');
+
+            if (user.role === 'admin') {
+              $state.go('admin');
+            } else {
+              $state.go('user_profile');
+            }
+          },
+          function(response) {
+            flashMethods.dangerAlert(translate.res_error);
+          }
+        );
+      
     }
 
   }

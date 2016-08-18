@@ -11,12 +11,17 @@
     var vm = this;
 
     vm.login_animation = false;
+    vm.toggle_preloader = false;
 
     $scope.$on('login_animation', function() {
         vm.login_animation = true;
         $timeout(function() {
           vm.login_animation = false;
         }, 2000);
+    });
+
+    $scope.$on('toggle_preloader', function (bool) {
+      vm.toggle_preloader = bool;
     });
 
   }

@@ -25,6 +25,7 @@
         sign_up_btn: 'Регистрация',
         registration_was_complited: 'Регистрация успешно завершена!',
         click_to_login: 'Кликните ниже, чтобы войти в свой аккаунт.',
+        res_error: 'Произошла ошибка!',
         btn_to_login: 'Войти',
         back: 'Назад'
       },
@@ -46,6 +47,7 @@
         sign_up_btn: 'Sign up',
         registration_was_complited: 'Registration was successfully!',
         click_to_login: 'Click below to login.',
+        res_error: 'Error has been occurred!',
         btn_to_login: 'Login',
         back: 'Back'
       }

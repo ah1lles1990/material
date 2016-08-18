@@ -23,7 +23,7 @@
               return response;
             },
             function(response){
-              var user = UserLocalStorage.get_user_login()
+              var user = UserLocalStorage.get_user_login();
               if (!user || !Object.keys(user).length) {
                 $state.go('logout');
               }
