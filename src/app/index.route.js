@@ -11,6 +11,9 @@
       .state('home', {
         url: '/',
         templateUrl: 'app/auth/auth.html',
+        controller: function($scope){
+          $scope.toggle_header(false);
+        },
         resolve: {
           auth: function ($state, $timeout, UserLocalStorage) {
             var user = UserLocalStorage.get_user_login();

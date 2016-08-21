@@ -1,0 +1,21 @@
+<div class="site-header" layout="row" layout-align="space-between center" ng-class="{fixed: fixed_header}">
+    <div class="menu-btn">
+        <md-button class="md-fab md-button md-ink-ripple" aria-label="Menu" type="button">
+            <md-tooltip>Menu</md-tooltip>
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </md-button>
+    </div>
+    <div class="logo-holder">
+        <a href="/"><img src="assets/images/angular.png" alt="logo"></a>
+    </div>
+    <div class="user-nav">
+        <md-button class="md-raised md-fab md-mini md-button md-ink-ripple" aria-label="Profile" type="button" ui-sref="user_profile">
+            <md-tooltip>Profile</md-tooltip>
+            <i class="fa fa-cog" aria-hidden="true"></i>
+        </md-button>
+        <md-button class="md-raised md-fab md-mini md-button md-ink-ripple" aria-label="Log out" type="button" ui-sref="logout">
+            <md-tooltip>Log out</md-tooltip>
+            <i class="fa fa-sign-in" aria-hidden="true"></i>
+        </md-button>
+    </div>
+</div>

@@ -17,6 +17,8 @@
 
     translate = translateService.create(['not_valid_password', 'email_is_empty', 'res_error']);
 
+    $scope.toggle_header(false);
+
     vm.validate_email = function() {
       var email_valid = $scope.signInForm.email.$viewValue.search(regExp) !== -1;
       $scope.signInForm.email.$setValidity('required', email_valid);

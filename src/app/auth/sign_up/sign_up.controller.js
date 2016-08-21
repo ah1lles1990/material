@@ -18,6 +18,8 @@
 
     translate = translateService.create(['email_already_exists', 'res_error']);
 
+    $scope.toggle_header(false);
+
     vm.validate_email = function() {
       var email_valid = $scope.signUpForm.email.$viewValue.search(regExp) !== -1;
       $scope.signUpForm.email.$setValidity('required', email_valid);

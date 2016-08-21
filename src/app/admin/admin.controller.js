@@ -10,6 +10,8 @@
 
     var vm = this;
 
+    vm.table_columns = ['email', 'name', 'password', 'role'];
+
   }
 
 })();

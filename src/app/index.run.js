@@ -5,7 +5,7 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($rootScope, $log, $state, $timeout, UserLocalStorage) {
+  function runBlock($rootScope, $log, $state, $timeout, $window, $document, UserLocalStorage) {
 
     $log.debug('runBlock end');
 
@@ -23,9 +23,7 @@
         }
       }
     });
-    $rootScope.$on('$stateChangeSuccess', function() {
-      console.log(UserLocalStorage.get_user_login());
-    });
+
   }
   
 

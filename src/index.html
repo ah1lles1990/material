@@ -26,6 +26,9 @@
 
     <div class="site-wrapper" ng-controller="MainController as mainCtrl" ng-class="{'page-is-changing': mainCtrl.login_animation}">
 
+        <!-- Site header -->
+        <site-header ng-if="mainCtrl.site_header"></site-header>
+
         <div class="main-wrapper" ui-view></div>
 
         <!-- Login animation -->

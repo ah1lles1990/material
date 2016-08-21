@@ -12,6 +12,9 @@
 
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
 
+* {
+    box-sizing: border-box;
+}
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -111,6 +114,7 @@ body {
 }
 .main-content {
   min-height: 100%;
+  padding-top: 90px;
 }
 .main-title {
   font-size: 40px;
