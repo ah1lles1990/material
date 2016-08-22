@@ -63,7 +63,7 @@
               $state.go('user_profile');
             }
           },
-          function(response) {
+          function() {
             flashMethods.dangerAlert(translate.res_error);
           }
         );

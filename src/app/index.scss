@@ -16,112 +16,155 @@
     box-sizing: border-box;
 }
 @font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
-  src: local('Material Icons'),
-       local('MaterialIcons-Regular'),
-       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
-       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff) format('woff'),
-       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+        url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff) format('woff'),
+        url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype');
 }
 
 .material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
 
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
 
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
 
-  /* Support for IE. */
-  font-feature-settings: 'liga';
+    /* Support for IE. */
+    font-feature-settings: 'liga';
 }
 
 $screen-lg: 1200px;
 $screen-md: 991px;
 $screen-sm: 767px;
 
-html {
-  font-family: 'Roboto Slab', serif;
-}
+$Roboto: 'Roboto', serif;
+
+$font_base: 16px;
 
 [layout=row] {
-  flex-direction: row;
+    flex-direction: row;
 }
 
 .browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
 }
 
 md-toolbar.md-default-theme {
-  background-color: black;
+    background-color: black;
 }
 
 section.jumbotron {
-  margin-bottom: 30px;
-  padding: 1px 30px;
-  background-color: #5aadbb;
-  text-align: center;
+    margin-bottom: 30px;
+    padding: 1px 30px;
+    background-color: #5aadbb;
+    text-align: center;
+    color: white;
 
-  color: white;
-
-  h1 {
-    font-size: 3em;
-  }
+    h1 {
+        font-size: 3em;
+    }
 }
 
 .techs {
-  display: flex;
-  flex-flow: row wrap;
+    display: flex;
+    flex-flow: row wrap;
 
-  md-card {
-    width: 30%;
+    md-card {
+        width: 30%;
 
-    img.pull-right {
-      float: right;
-      width: 100px;
+        img.pull-right {
+            float: right;
+            width: 100px;
+        }
     }
-  }
 }
 
 
 /* ====== My styles ===== */
 
 body {
-  font: 16px/1.4 'Roboto', sans-serif;
+    font-family: $Roboto;
+    line-height: 1.4;
+    font-size: $font_base;
 }
 .main-wrapper,
 .site-wrapper {
-  height: 100%;
+    height: 100%;
 }
 .main-content {
-  min-height: 100%;
-  padding-top: 90px;
+    min-height: 100%;
+    background: #eee;
+}
+site-header ~ .main-wrapper .main-content {
+    padding-top: 90px;
 }
 .main-title {
-  font-size: 40px;
-  margin: 0 0 40px;
+    font-size: 40px;
+    margin: 0 0 40px;
 }
 .md-button {
-  vertical-align: top;
+    vertical-align: top;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent
+}
+::-webkit-scrollbar-thumb:vertical {
+    background: rgba(233, 30, 99, 0.7);
+    border-radius: 100px;
+    background-clip: padding-box;
+    min-height: 10px
+}
+::-webkit-scrollbar-thumb:vertical:hover {
+    background: rgba(233, 30, 99, 0.85);
+}
+::-webkit-scrollbar-thumb:vertical:active {
+    background: rgba(233, 30, 99, 1);
+    -webkit-border-radius: 100px
+}
+
+.card {
+    color: rgba(0,0,0,0.87);
+    background-color: rgb(255,255,255);
+    border-radius: 2px;
+    margin: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+}
+
+.pd-0 {
+    padding: 0 !important;
+}
+.mg-0 {
+    margin: 0 !important;
+}
+.mb-60 {
+    margin-bottom: 60px;
 }
 
 /* Effect 10: Corner indicator */
@@ -218,7 +261,7 @@ body {
 
 
 .required-field-error {
-  font-size: 12px;
+  font-size: ceil($font_base * 0.8);
   padding-top: 5px;
 }
 

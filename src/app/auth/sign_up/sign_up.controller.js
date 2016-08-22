@@ -50,7 +50,7 @@
               $state.go('done');
             });
           },
-          function(response) {
+          function() {
             flashMethods.dangerAlert(translate.res_error);
           }
         );

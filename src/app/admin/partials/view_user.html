@@ -1,0 +1,10 @@
+<div class="main-content" layout="row" layout-align="start start">
+    <div class="card">
+        <div ng-repeat="(key, value) in admin.user">
+            <span ng-bind="key"></span>
+            :
+            <span ng-bind="value"></span>
+        </div>
+        <button class="btn btn-primary" ui-sref="admin">Назад</button>
+    </div>
+</div>

@@ -5,14 +5,33 @@
     
     .table-head {
         display: table-header-group;
+
+        .table-cell {
+            font-weight: 700;
+        }
     }
     .table-body {
         display: table-row-group;
     }
     .table-row {
         display: table-row;
+        border-bottom: 1px solid #eee;
     }
     .table-cell {
         display: table-cell;
+        padding: 8px 15px;
+        line-height: 40px;
+        position: relative;
+
+        .fa {
+            font-size: ceil($font_base * 1.4);
+            line-height: 1.5;
+            vertical-align: middle;
+        }
+    }
+    .action-box {
+        button {
+            margin: 0 5px;
+        }
     }
 }
