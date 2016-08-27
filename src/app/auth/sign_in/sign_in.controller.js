@@ -4,9 +4,9 @@
   angular.module('material')
     .controller('SignInController', SignInController);
 
-  SignInController.$inject = ['$scope', '$state', 'translateService', 'UserLocalStorage', 'usersApi', 'flashMethods', '_'];
+  SignInController.$inject = ['$scope', '$state', '$timeout', 'translateService', 'UserLocalStorage', 'usersApi', 'flashMethods', '_'];
 
-  function SignInController($scope, $state, translateService, UserLocalStorage, usersApi, flashMethods, _) {
+  function SignInController($scope, $state, $timeout, translateService, UserLocalStorage, usersApi, flashMethods, _) {
 
     var
       vm = this,
@@ -15,7 +15,9 @@
 
     vm.user_remember = false;
 
-    translate = translateService.create(['not_valid_password', 'email_is_empty', 'res_error']);
+    $scope.$on('language_change_success', function () {
+      translate = translateService.create(['not_valid_password', 'email_is_empty', 'res_error']);
+    });
 
     $scope.toggle_header(false);
 
@@ -58,9 +60,9 @@
             $scope.$emit('login_animation');
 
             if (user.role === 'admin') {
-              $state.go('admin');
+              $timeout(function() { $state.go('admin'); }, 1500);
             } else {
-              $state.go('user_profile');
+              $timeout(function() { $state.go('user_profile'); }, 1500);
             }
           },
           function() {

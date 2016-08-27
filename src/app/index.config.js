@@ -52,7 +52,7 @@
   function translateProviderConfig($translateProvider){
 
     $translateProvider.useSanitizeValueStrategy('sanitize');
-
+    
     $translateProvider.preferredLanguage('ru_RU');
   }
 

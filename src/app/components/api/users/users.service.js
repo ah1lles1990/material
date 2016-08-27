@@ -34,6 +34,14 @@
       return mainApi.post(url, params);
     }
 
+    usersApi.remove_user = function(user_id) {
+      var
+        url = 'users/' + user_id,
+        params = {};
+
+      return mainApi['delete'](url, params);
+    }
+
     return usersApi;
   }
 

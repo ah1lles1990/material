@@ -16,7 +16,9 @@
     vm.confirm_password = '';
     vm.passwords_not_match = false;
 
-    translate = translateService.create(['email_already_exists', 'res_error']);
+    $scope.$on('language_change_success', function () {
+      translate = translateService.create(['email_already_exists', 'res_error']);
+    });
 
     $scope.toggle_header(false);
 

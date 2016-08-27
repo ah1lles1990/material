@@ -178,6 +178,7 @@ site-header ~ .main-wrapper .main-content {
     background: #ED4E6E;
     box-shadow: 0 0 12px #444;
     transition: transform 0.3s;
+    will-change: transform;
     transform: translateX(100%) translateY(-100%) rotate(45deg);
     pointer-events: none;
 
@@ -186,6 +187,7 @@ site-header ~ .main-wrapper .main-content {
     }
     &:before,
     &:after {
+        will-change: transform;
         position: absolute;
         bottom: 30px;
         left: 50%;
@@ -276,6 +278,7 @@ site-header ~ .main-wrapper .main-content {
     height: 2px;
     width: 90%;
     background-color: #4089a6;
+    will-change: transform;
     visibility: hidden;
     transition: visibility 0s 0.4s, transform 0.4s 0s ease-in;
     -webkit-backface-visibility: hidden;
@@ -294,6 +297,7 @@ site-header ~ .main-wrapper .main-content {
     height: 100%;
     width: 100%;
     background-color: #000;
+    will-change: transform;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transform: translateZ(0);
@@ -317,9 +321,10 @@ site-header ~ .main-wrapper .main-content {
     left: 0;
     background-color: #ffffff;
     z-index: 250;
+    will-change: transform;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    transform: translateZ(0);
+    // transform: translateZ(0);
     transition: transform 0.4s 0.4s;
 }
 .site-wrapper:before {
@@ -345,6 +350,7 @@ site-header ~ .main-wrapper .main-content {
     height: calc(100% - 20px);
     width: calc(100% - 20px);
     opacity: 0;
+    will-change: transform, opacity;
     visibility: hidden;
     background-color: #4089a6;
     transition: opacity 0.4s 0.4s, visibility 0s 0.8s;
