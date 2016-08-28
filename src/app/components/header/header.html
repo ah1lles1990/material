@@ -1,6 +1,6 @@
 <div class="site-header" layout="row" layout-align="space-between center" ng-class="{fixed: fixed_header}">
     <div class="menu-btn">
-        <md-button class="md-fab md-button md-ink-ripple" aria-label="Menu" type="button">
+        <md-button class="md-fab md-button md-ink-ripple" aria-label="Menu" type="button" ng-click="toggleRight()">
             <md-tooltip>
                 <span translate="header_menu"></span>
             </md-tooltip>
@@ -42,3 +42,20 @@
         </md-button>
     </div>
 </div>
+<md-sidenav class="md-sidenav-left md-whiteframe-4dp main-menu" md-component-id="left">
+    <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools" translate="header_menu"></h1>
+        <md-button ng-click="close()" class="md-fab md-mini md-button md-ink-ripple">
+          <md-icon md-svg-icon="md-close" aria-hidden="true"></md-icon>
+        </md-button>
+    </md-toolbar>
+    <md-content>
+        <ul class="menu">
+            <li class="menu-item">
+                <md-button class="md-button md-ink-ripple" aria-label="Easter Egg" type="button" ui-sref="games">
+                    Games
+                </md-button>
+            </li>
+        </ul>
+    </md-content>
+</md-sidenav>

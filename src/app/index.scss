@@ -64,6 +64,12 @@ $font_base: 16px;
     flex-direction: row;
 }
 
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;

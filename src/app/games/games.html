@@ -1,0 +1,14 @@
+<div class="main-content" layout="row" layout-align="start start">
+    <div class="container">
+        <div class="card pd-0 mb-60" flex="100">
+            <div class="content-wrap">
+                <h1>Games</h1>
+                <ul class="games-list">
+                    <li ng-repeat="game in games.gamel_list">
+                        <a ui-sref="{{game.state}}" ng-bind="game.name"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

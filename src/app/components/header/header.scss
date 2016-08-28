@@ -24,3 +24,29 @@
     vertical-align: middle;
     height: 50px;
 }
+.main-menu {
+
+    .md-theme-light {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .md-toolbar-tools {
+        width: auto;
+    }
+}
+.menu {
+    margin: 0;
+    padding: 0;
+
+    .menu-item {
+
+        .md-button {
+            margin: 0;
+            width: 100%;
+            text-align: left;
+            border-radius: 0;
+            padding: 10px 15px;
+        }
+    }
+}

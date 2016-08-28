@@ -4,9 +4,9 @@
   angular.module('material')
     .directive('siteHeader', siteHeader);
 
-  siteHeader.$inject = ['$state', '$translate','translateService', 'UserLocalStorage', '_'];
+  siteHeader.$inject = ['$state', '$translate', '$mdSidenav','translateService', 'UserLocalStorage', '_'];
 
-  function siteHeader($state, $translate, translateService, UserLocalStorage, _) {
+  function siteHeader($state, $translate, $mdSidenav, translateService, UserLocalStorage, _) {
     return {
       restrict: 'E',
       templateUrl: 'app/components/header/header.html',
@@ -35,6 +35,31 @@
           }
         ];
         $scope.change_language($translate.use());
+
+        $scope.toggleRight = buildToggler('left');
+
+        $scope.isOpenRight = function(){
+          return $mdSidenav('left').isOpen();
+        };
+
+        function buildToggler(navID) {
+          return function() {
+            $mdSidenav(navID)
+              .toggle()
+              .then(function () {
+              });
+          }
+        }
+
+        $scope.close = function () {
+          $mdSidenav('left').close()
+            .then(function () {
+            });
+        };
+
+        $scope.$on('$stateChangeSuccess', function() {
+          $scope.close();
+        });
 
       }
     }
